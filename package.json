@@ -1,0 +1,27 @@
+{
+  "name": "tabla_de_multiplicar",
+  "version": "1.0.0",
+  "description": "Mostrar tablas de multiplicar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcShatdoun/Tabla-node.git"
+  },
+  "keywords": [
+    "node",
+    "example",
+    "basic"
+  ],
+  "author": "Marc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcShatdoun/Tabla-node/issues"
+  },
+  "homepage": "https://github.com/MarcShatdoun/Tabla-node#readme",
+  "dependencies": {
+    "picocolors": "^1.0.0"
+  }
+}
