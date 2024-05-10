@@ -5,6 +5,8 @@ const pc = require('picocolors');
 
 // console.log(pc.bgBlue("Esto es un texto amarillo"));
 
+//Verificamos si hay 2 argumentos en la linea de comandos de process
+
 console.clear()
 if (process.argv.length === 2){
     let menu = `
@@ -20,6 +22,12 @@ del número que elijas
     console.log(menu);
     process.exit();
 }
+//FALTA: 
+// Falta que esten los dos argumentos requeridos
+// Verificar el orden de lo argumentos 
+// verificar el numero sea mayor que cero
+// Verificar que el idioma sea correcto y/o este en la lista
+//   menu += `esp - cat - en - ge - jp \n` <---- no hardcodear idiomas
 
 const operador = process.argv[2]
 const lang = process.argv[3]
@@ -47,13 +55,27 @@ for (let i = 1; i <= numLimit; i++) {
     tabla += `${operador} x ${i} = ${operador * i}\n`;
 }
 
-console.log(tabla);
+process.stdout.write(tabla);
+const rutaCarpeta = path.join("txt", lang)
+const rutaFichero = path.join(rutaCarpeta, titleFixed,".txt")
 
-const rutaFichero = path.join("txt", lang, titleFixed)
+//verificar si la ruta existe, si no la crea 
 
-fs.open(rutaFichero+".txt", "w", "utf-8", (err, fd) => {
-    if(err) throw err;
-    console.log("Se ha creado el fichero");
+if(!fs.existsSync(rutaCarpeta)){
+    console.log("La ruta no existe, se creará a continuación");
+    fs.mkdirSync(rutaCarpeta, {recursive: true});
     
-})
+}
+
+
+
+fs.writeFileSync(rutaFichero, header + tabla, "utf-8")
+
+// fs.open(rutaCarpeta+".txt", "w", "utf-8", (err, data) => {
+//     if(err) throw err;
+//     console.log("Se ha creado el fichero");
+    
+// })
+
+
 
